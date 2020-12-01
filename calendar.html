@@ -1,0 +1,158 @@
+<!-- https://classes.engineering.wustl.edu/cse330/index.php/Module_5 -->
+<!-- get calendar css from https://www.w3schools.com/howto/howto_css_calendar.asp -->
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <meta charset="UTF-8" />
+  <title>
+     Calendar
+  </title>
+
+  <link rel="stylesheet" type="text/css" href="calendar.css"/>
+  <!-- get calendar date information-->
+  <script src="http://code.jquery.com/jquery-latest.js"></script>
+  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/flick/jquery-ui.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+  </head>
+
+ <body>
+  <!-- build calendar funcion box-->
+  <div class = "calender-container">
+    <h1>Module 5 - Calendar</h1>
+    <h4 id="userid"></h4>
+    <div class="bar">
+     <!--  <input type="text" id="username" placeholder="Username" />
+      <input type="password" id="password" placeholder="Password" /> -->
+      <button id="logout" class="hidden">log out</button>
+      <button id="signupform">sign up</button>
+      <button id="create" class="hidden">create</button>
+      <button id="loginButton">log in</button>
+      <button id="share" class="hidden">share</button>
+      <button id="tagChange" class="hidden">tag</button>
+    </div>
+
+    <div class="month">
+      <ul>
+        <li>
+          <div class="calender-header" id="calender-header">MM YYYY</div>
+        </li>
+        <li>
+          <button class="prev" id="prev_month_btn">&#10094;</button>
+        </li>
+        <li>
+          <button class="next" id="next_month_btn">&#10095;</button>
+        </li>
+      </ul>
+    </div>
+
+    <div class="calendar-week">
+      <div>Sun</div>
+      <div>Mon</div>
+      <div>Tue</div>
+      <div>Wed</div>
+      <div>Thu</div>
+      <div>Fri</div>
+      <div>Sat</div>
+    </div>
+	  <!-- get user name-->
+    <!-- https://stackoverflow.com/questions/20712195/how-to-implement-login-popup-in-html-javascript -->
+    <div id="loginbox">
+    Username:
+    <input id="username" size="23" />
+    Password:
+    <input id="password" type="password" size="14" />
+    <input type="submit" name="login" id ="login" value="Log in" />
+    <input type="button" name="closeform2" id ="closeForm2" value="Close" />
+    
+    <br />
+    </div>
+   <!-- calend function-->
+    <!-- https://stackoverflow.com/questions/20712195/how-to-implement-login-popup-in-html-javascript -->
+    <div id="signupbox">
+    Username:<br>
+    <input id="newusername" size="40" /><br/>
+    Password:
+    <input id="newpassword" type="password" size="14" /><br/>
+    <input type="submit" name="signup" id ="signup" value="Create" />
+    <input type="button" name="closeform" id ="closeForm" value="Close" />
+    
+    <br />
+    </div>
+
+    <div class="calendar-days" id="calendar-days">
+    </div>
+   </div>
+
+  <div id="event_details">
+  </div>
+    <!-- edit event box-->
+  <div id="event_edit" style="display:none">
+    <input type="text" name="eventTitle" id="editTitle"><br>
+    <input class="input4number" type="number" name="eventTimeYear" id="eventTimeYear">-
+    <input class="input2number" type="number" name="eventTimeMonth" id="eventTimeMonth">-
+    <input class="input2number" type="number" name="eventTimeDay" id="eventTimeDay">
+    <input class="input2number" type="number" name="eventTimeHour" id="eventTimeHour">:
+    <input class="input2number" type="number" name="eventTimeMinute" id="eventTimeMinute">
+    <select id="editTag">
+        <option value="0" id="none">None</option>
+        <option value="1" id="school">School</option>
+        <option value="2" id="work">Work</option>
+        <option value="3" id="other">Other</option>
+    </select>
+	  <!-- edit event selection-->
+    <p>
+      <button id="editSubmit">submit</button>
+      <button id="editDelete">delete</button>
+      <button id="editShare">share</button>
+    </p>
+  </div>
+    <!-- build event box-->
+  <div id="add_event" style="display:none">
+    <input type="text" name="addtTitle" id="addTitle"><br>
+    <input class="input4number" type="number" name="eventTimeYear" id="addEventTimeYear">-
+    <input class="input2number" type="number" name="eventTimeMonth" id="addEventTimeMonth">-
+    <input class="input2number" type="number" name="eventTimeDay" id="addEventTimeDay">
+    <input class="input2number" type="number" name="eventTimeHour" id="addEventTimeHour">:
+    <input class="input2number" type="number" name="eventTimeMinute" id="addEventTimeMinute">
+    <br>
+	  <!-- new tag selection-->
+
+    <p>
+    <button id="addSubmit">submit</button>
+    </p>
+  </div>
+    <!--share username-->
+  <div id="share_user" style="display:none">
+    <input type="text" name="share_user_input" id="share_user_input"><br>
+  </div>
+  <!-- new tag selection-->
+  <div id="tag_dialog" style="display:none">
+    <input id="checkbox0" type="checkbox" name="None" value="0" checked="checked">None<br>
+    <input id="checkbox1" type="checkbox" name="School" value="1" checked="checked">School<br>
+    <input id="checkbox2" type="checkbox" name="Work" value="2" checked="checked">Work<br>
+    <input id="checkbox3" type="checkbox" name="Other" value="3" checked="checked">Other<br>
+  </div>
+
+
+
+
+
+
+<!-- call js -->
+	<script src="calendarFunctions.js"></script>
+	<script src="calendar.js"></script>
+	<script src="showtag.js"></script>
+  <script src="loginbox.js"></script>
+  <script src="signupbox.js"></script>
+	<script src="signup.js"></script>
+	<script src="tag_array.js"></script>
+	<script src="print_event.js"></script>
+	<script src="delete_event.js"></script>
+	<script src="addevent.js"></script>
+	<script src="logout.js"></script>
+	<script src="login.js"></script>
+	<script src="share_calendar.js"></script>
+	<script src="changeTag.js"></script>
+
+ </body>
+ </html>

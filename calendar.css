@@ -1,0 +1,213 @@
+/*https://www.w3schools.com/howto/howto_css_calendar.asp*/
+* {box-sizing: border-box;}
+ul {list-style-type: none;}
+body {width: 80%; margin:0 auto;font-family: Verdana, sans-serif;}
+
+/* Add media queries for smaller screens */
+@media screen and (max-width:720px) {
+    .weekdays li, .days li {width: 13.1%;}
+}
+
+@media screen and (max-width: 420px) {
+    .weekdays li, .days li {width: 12.5%;}
+    .days li .active {padding: 2px;}
+}
+
+@media screen and (max-width: 290px) {
+    .weekdays li, .days li {width: 12.2%;}
+}
+
+
+.calender-container {
+    margin: 0 auto;
+    position: :relative;
+    width: 80%;
+}
+
+
+.month {
+    padding: 5px 5px;
+    width: 100%;
+    background: #1abc9c;
+
+    text-align: center;
+}
+
+.month ul {
+    margin: 20px;
+    list-style-type: none;
+    padding: 0;
+
+
+}
+
+.month ul li {
+    color: white;
+    font-size: 15px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+
+.month .prev {
+    float: left;
+    margin: 0 auto;
+    width: 50px;
+    height: 50%;
+
+}
+
+.month .next {
+    float: right;
+    width: 50px;
+    height: 50%;
+     top: 0;
+}
+
+
+.bar {
+    list-style-type: none;
+    margin: 0;
+    padding: 10px;
+    overflow: hidden;
+    background-color: skyblue;
+
+}
+.bar button {
+  float: right;
+  color: #4CAF50;
+  text-align: center;
+  padding: 5px 5px;
+  text-decoration: none;
+  cursor: pointer;
+  border: 1px solid green;
+  border-radius: 5px;
+  font-size:15px
+}
+
+.bar button:hover {
+    background-color: #3e8e41;
+}
+
+.calendar-week {
+    display:table;
+    table-layout:fixed;
+    width:100%;
+    background: #fff;
+    color: #545454;
+}
+
+.calendar-week div {
+    border: 1px solid gray;
+    width: 14.28%;
+    display:table-cell;
+    box-sizing:border-box;
+    position: relative;
+    font-weight: bold;
+    text-align:center;
+    text-transform: uppercase;
+    font-size:14px;
+
+}
+
+.calendar-days{
+    display:table;
+    table-layout:fixed;
+    width:100%;
+    overflow: hidden;
+}
+
+.day:before {
+    content: "";
+    display: block;
+    padding-top: 100%;
+    float: left;
+}
+
+
+.week {
+    display:table-row;
+    width:100%;
+}
+
+.day, .blank {
+    border: 1px solid gray;
+    width: 14.28%;
+    display:table-cell;
+    vertical-align: top;
+    box-sizing:border-box;
+    position: relative;
+    font-weight: bold;
+    background: #fff;
+    text-decoration: none;
+}
+
+.blank {
+    background-color: #D3D3D3;
+}
+
+.calendar {
+    position: relative;
+    color: #585858;
+    margin: 3px;
+    font-size:11px;
+    float:left;
+}
+
+.today .calendar {
+    color: #FFF;
+    background: #EA6565;
+    width: 100%;
+    height: 17px;
+}
+
+.events{
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 400;
+  margin-left: 100px;
+}
+
+.input2number{
+  width: 50px;
+}
+
+.input4number{
+  width:70px;
+}
+.hidden{
+  display:none;
+}
+
+.eventDay{
+  background-color: #8274dd;
+}
+
+#loginbox{
+margin: 0; 
+margin-left: 17%; 
+margin-top: 50px; 
+padding-top: 10px; 
+width: 30%; 
+height: 150px; 
+position: absolute; 
+background: #FBFBF0; 
+border: solid #000000 2px; 
+z-index: 9; 
+font-family: arial; 
+display: none;
+}
+
+#signupbox {
+margin: 0; 
+margin-left: 17%; 
+margin-top: 50px; 
+padding-top: 10px; 
+width: 30%; 
+height: 150px; 
+position: absolute; 
+background: #FBFBF0; 
+border: solid #000000 2px; 
+z-index: 9; 
+font-family: arial; 
+display: none;
+}
